@@ -1,0 +1,123 @@
+<div class="registration-container">
+  <form (submit)="register($event)" class="registration-form" [formGroup]="registrationForm" validate>
+    <ng-container *ngTemplateOutlet="template">
+
+    </ng-container>
+
+    <div *ngIf="template && template != default" class="activity-container">
+      <button type="button" [routerLink]="['/authorization']" mat-button>SING IN</button>
+      <button type="submit" mat-button>SING UP</button>
+    </div>
+  </form>
+</div>
+
+<ng-template #default>
+  <div class="register-btns-container">
+    <button (click)="getUserRegist()" mat-button class="register-btn">Register as User</button>
+    <button (click)="getOrganRegist()" mat-button class="register-btn">Register as Organization</button>
+  </div>
+</ng-template>
+
+<ng-template #user>
+  <mat-form-field class="registration_fields">
+    <input matInput placeholder="First Name*" [formControl]="registrationForm.controls['firstName']"
+      [errorStateMatcher]="matcher">
+    <mat-error *ngIf="registrationForm.controls['firstName'].hasError('required')">
+      This is required.
+    </mat-error>
+    <mat-error *ngIf="registrationForm.controls['firstName'].hasError('pattern')">
+      This should be user name.
+    </mat-error>
+    <mat-error *ngIf="registrationForm.controls['firstName'].hasError('minlength')">
+      Name should contain more then 1 letter.
+    </mat-error>
+  </mat-form-field>
+
+  <mat-form-field class="registration_fields">
+    <input matInput placeholder="Last Name*" [formControl]="registrationForm.controls['lastName']" [errorStateMatcher]="matcher">
+    <mat-error *ngIf="registrationForm.controls['lastName'].hasError('required')">
+      This is required.
+    </mat-error>
+    <mat-error *ngIf="registrationForm.controls['lastName'].hasError('pattern')">
+      This should be user last name.
+    </mat-error>
+    <mat-error *ngIf="registrationForm.controls['lastName'].hasError('minlength')">
+      Last name should contain more then 1 letter.
+    </mat-error>
+  </mat-form-field>
+
+  <mat-form-field class="registration_fields">
+    <input matInput placeholder="Email*" [formControl]="registrationForm.controls['email']" [errorStateMatcher]="matcher">
+    <mat-error *ngIf="registrationForm.controls['email'].hasError('required')">
+      This is required.
+    </mat-error>
+    <mat-error *ngIf="registrationForm.controls['email'].hasError('email')">
+      This should be email.
+    </mat-error>
+  </mat-form-field>
+
+  <mat-form-field class="registration_fields">
+    <input matInput placeholder="Password*" [formControl]="registrationForm.controls['password']" [errorStateMatcher]="matcher">
+    <mat-error *ngIf="registrationForm.controls['password'].hasError('required')">
+      This is required.
+    </mat-error>
+    <mat-error *ngIf="registrationForm.controls['password'].hasError('minlength')">
+      More then 5 chars.
+    </mat-error>
+  </mat-form-field>
+  <mat-error *ngIf="registrationForm.hasError('badRequest')">
+    This user has already exist.
+  </mat-error>
+</ng-template>
+
+<ng-template #organization>
+  <mat-form-field class="registration_fields">
+    <input matInput placeholder="Name*" [formControl]="registrationForm.controls['name']" [errorStateMatcher]="matcher">
+    <mat-error *ngIf="registrationForm.controls['name'].hasError('required')">
+      This is required.
+    </mat-error>
+    <mat-error *ngIf="registrationForm.controls['name'].hasError('pattern')">
+      This should be name.
+    </mat-error>
+    <mat-error *ngIf="registrationForm.controls['name'].hasError('minlength')">
+      Name should contain more then 1 letter.
+    </mat-error>
+  </mat-form-field>
+
+  <mat-form-field class="registration_fields">
+    <input matInput placeholder="Email*" [formControl]="registrationForm.controls['email']" [errorStateMatcher]="matcher">
+    <mat-error *ngIf="registrationForm.controls['email'].hasError('required')">
+      This is required.
+    </mat-error>
+    <mat-error *ngIf="registrationForm.controls['email'].hasError('email')">
+      This should be email.
+    </mat-error>
+  </mat-form-field>
+
+  <mat-form-field class="registration_fields">
+    <input matInput placeholder="Phone*" [formControl]="registrationForm.controls['phone']" [errorStateMatcher]="matcher">
+    <mat-error *ngIf="registrationForm.controls['phone'].hasError('required')">
+      This is required.
+    </mat-error>
+    <mat-error *ngIf="registrationForm.controls['phone'].hasError('pattern')">
+      This should be phone.
+    </mat-error>
+  </mat-form-field>
+
+  <mat-form-field class="registration_fields">
+    <input matInput placeholder="Password*" [formControl]="registrationForm.controls['password']" [errorStateMatcher]="matcher">
+    <mat-error *ngIf="registrationForm.controls['password'].hasError('required')">
+      This is required.
+    </mat-error>
+    <mat-error *ngIf="registrationForm.controls['password'].hasError('minlength')">
+      More then 5 chars.
+    </mat-error>
+  </mat-form-field>
+
+    <mat-label>Put your certificate</mat-label>
+    <input #file type="file">
+
+  <mat-error *ngIf="registrationForm.hasError('badRequest')">
+    This organization has already exist.
+  </mat-error>
+</ng-template>

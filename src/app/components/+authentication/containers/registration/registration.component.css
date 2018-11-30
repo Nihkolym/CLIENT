@@ -1,0 +1,40 @@
+.registration-container{
+  height: 400px;
+  width: 500px;
+  padding: 50px;
+  display: flex;
+  background: rgb(252, 190, 190);
+  position: absolute;
+  left: calc(50% - 250px);
+  top: calc(50% - 250px);
+}
+
+.registration-form{
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.registration_fields{
+  width: 100%;
+}
+
+.activity-container{
+  display: flex;
+  position: absolute;
+  bottom: 50px;
+  right: 50px;
+}
+
+.register-btns-container{
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  height: 100%;
+}
+
+.register-btn {
+  background-color: rgb(134, 134, 134);
+  font-size: 24px;
+  margin-bottom: 40px;
+}
