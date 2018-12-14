@@ -1,0 +1,32 @@
+.example-card {
+  max-width: 370px;
+  margin: 0 50px;
+  margin-bottom: 50px;
+}
+
+.mat-card-image {
+  width: 370px;
+  height: 300px;
+}
+
+.example-header-image {
+  background-size: cover;
+}
+
+.status{
+  position: absolute;
+  right: 5px;
+  top: 5px;
+}
+
+.mat-header{
+  position: relative;
+}
+
+.announcements-list {
+  overflow-y: scroll;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  height: calc(100vh - 100px);
+}

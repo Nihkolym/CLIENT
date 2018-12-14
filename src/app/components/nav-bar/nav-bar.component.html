@@ -1,0 +1,27 @@
+<nav class="nav-container">
+  <div class="nav-main">
+    <div [routerLink]="'/'" class="logo">
+      <mat-icon style="font-size: 40px">pets</mat-icon>
+    </div>
+    <div class="links">
+      <ul class="link-list">
+        <li class="link"><a [routerLink]="['/need-help']">Need Help</a></li>
+        <li class="link"><a [routerLink]="['/rescued']">Rescued</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="profile">
+    <button mat-button [matMenuTriggerFor]="menu">
+      <mat-icon class="profile_icon" style="font-size: 40px;"
+        >account_circle</mat-icon
+      >
+    </button>
+    <mat-menu #menu="matMenu">
+      <button *ngIf="Role.User === role || Role.Admin === role" mat-menu-item [routerLink]="['/profile']">Profile</button>
+      <button *ngIf="Role.Organisation === role" mat-menu-item [routerLink]="['/org']">Profile</button>
+      <button *ngIf="Role.Admin === role" mat-menu-item [routerLink]="['/new-org']">New Organisations</button>
+      <button (click)="logout()" mat-menu-item>Logout</button>
+    </mat-menu>
+  </div>
+</nav>

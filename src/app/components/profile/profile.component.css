@@ -1,0 +1,14 @@
+.profile-form{
+  display: flex;
+  padding: 30px;
+  width: 400px;
+  margin: 0 auto;
+  background: rgb(252, 190, 190);
+  flex-direction: column;
+}
+
+.avatar {
+  width: 200px;
+  height: 200px;
+  margin: 0 auto;
+}

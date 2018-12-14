@@ -1,10 +1,21 @@
-import { Component } from '@angular/core';
+import { AuthenticationService } from './components/+authentication/services/authentication.service';
+import { Component, DoCheck } from '@angular/core';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent {
+export class AppComponent implements DoCheck {
   title = 'pet-helper';
+
+  public isLogedIn = false;
+
+  constructor(private authService: AuthenticationService) {
+
+  }
+
+  ngDoCheck() {
+    this.isLogedIn = this.authService.isAuthenticated();
+  }
 }

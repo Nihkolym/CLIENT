@@ -29,7 +29,7 @@ export class AuthenticationService {
   }
 
   public signUpAsOrganization(organization: FormData): Observable<void> {
-    return this.http.post<void>(`${this.url}/organizations/signup`, organization);
+    return this.http.post<void>(`${this.url}/organisations/signup`, organization);
   }
 
   public logIn(email: string, password: string): Observable<IUser> {
@@ -37,7 +37,17 @@ export class AuthenticationService {
       tap((data) => {
         this.tokenService.Token = data.token;
         this.roleService.Role = data.role;
-        this.router.navigate(['me']);
+        this.router.navigate(['profile']);
+      })
+    );
+  }
+
+  public logOrgIn(email: string, password: string): Observable<IUser> {
+    return this.http.post<any>(`${this.url}/organisations/login`, { email, password }).pipe(
+      tap((data) => {
+        this.tokenService.Token = data.token;
+        this.roleService.Role = data.role;
+        this.router.navigate(['pet-helper']);
       })
     );
   }

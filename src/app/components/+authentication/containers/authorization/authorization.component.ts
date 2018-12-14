@@ -30,8 +30,10 @@ export class AuthorizationComponent implements OnInit {
 
     this.authService.logIn(email, password).subscribe(
       () => { }, (err) => {
-        this.authorizationForm.setErrors({
-          'badRequest': true
+        this.authService.logOrgIn(email, password).subscribe(() => {
+          this.authorizationForm.setErrors({
+            'badRequest': true
+          });
         });
       });
   }

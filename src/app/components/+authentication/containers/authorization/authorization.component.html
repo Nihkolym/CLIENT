@@ -11,7 +11,7 @@
     </mat-form-field>
 
     <mat-form-field class="authorization_fields">
-      <input matInput placeholder="Password*" [formControl]="authorizationForm.controls['password']">
+      <input type="password" matInput placeholder="Password*" [formControl]="authorizationForm.controls['password']">
       <mat-error *ngIf="authorizationForm.controls['password'].hasError('required')">
         This is required.
       </mat-error>

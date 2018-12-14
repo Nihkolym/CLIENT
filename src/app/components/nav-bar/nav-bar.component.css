@@ -1,0 +1,51 @@
+.nav-container{
+  height: 100px;
+  padding-left: 60px;
+  display: flex;
+  border-bottom: 1px solid #d8d8d8;
+  align-items: center;
+}
+
+.nav-main{
+  width: 90%;
+  padding: 20px;
+  padding-right: 40px;
+  height: 100%;
+  border-right: 1px solid #d8d8d8;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.links{
+  width: 20%;
+}
+
+.link{
+  font-size: 20px;
+}
+
+.link-list{
+  display: flex;
+  width: 100%;
+  list-style: none;
+  justify-content: space-between;
+}
+
+.profile{
+  width: 10%;
+  display: flex;
+  justify-content: center;
+  position: relative;
+}
+
+.profile_icon{
+  position: relative;
+  right: 5%;
+  top: 5%;
+}
+
+.logo{
+  cursor: pointer;
+  outline: none;
+}

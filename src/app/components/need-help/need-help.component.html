@@ -1,0 +1,11 @@
+<div class="main">
+  <div class="add-container">
+    <button *ngIf="role !== Role.Organisation" [routerLink]="['/add-ann']" class="add-btn" mat-button>
+        <mat-icon class="mat-18">add</mat-icon>
+    </button>
+  </div>
+
+  <div class="announcements-list">
+    <app-announcement (subscribe)="subscribe($event)" [ann]="ann" *ngFor="let ann of anns"></app-announcement>
+  </div>
+</div>

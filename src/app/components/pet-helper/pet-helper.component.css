@@ -1,0 +1,68 @@
+.main{
+  background-image: url('../../../assets/backgrounds/133498-most-popular-dog-backgrounds-1920x1200.jpg');
+  height: 100%;
+}
+
+.example-container {
+  width: 100%;
+  overflow-y: scroll;
+  background: none;
+}
+
+.example-sidenav-content {
+  display: flex;
+  background: white;
+  height: calc(100vh - 100px);
+  align-items: center;
+  justify-content: center;
+}
+
+.org-cont-list{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  width: 80%;
+}
+
+.example-sidenav {
+  padding: 20px;
+}
+
+.btn-sidenav{
+  position: absolute;
+  left: 20px;
+  top: 20px;
+  background: rgb(54, 54, 54);
+}
+
+.example-card {
+  max-width: 370px;
+  margin: 0 50px;
+  margin-bottom: 50px;
+}
+
+
+.mat-card-image {
+  width: 370px;
+  height: 300px;
+}
+
+.example-header-image {
+  background-size: cover;
+}
+
+.status{
+  position: absolute;
+  right: 5px;
+  top: 5px;
+}
+
+.mat-header{
+  position: relative;
+}
+
+.announcements-list {
+  display: flex;
+  flex-wrap: wrap;
+  padding-top: 50px;
+}

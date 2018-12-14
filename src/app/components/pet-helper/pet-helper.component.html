@@ -1,0 +1,58 @@
+<div class="main">
+  <main style="height: calc(100vh - 100px); overflow-y: scroll;">
+      <mat-drawer-container *ngIf="Role.Admin === role; else showMyAnn" class="example-container" autosize>
+          <mat-drawer #drawer class="example-sidenav" mode="side">
+            <p>Admin Panel</p>
+            <button (click)="getOrgs()" mat-raised-button>
+              Organisations
+            </button>
+          </mat-drawer>
+          <div class="example-sidenav-content">
+              <button *ngIf="!show" (click)="show = !show" class="btn-sidenav" type="button" mat-button (click)="drawer.toggle()">
+                <mat-icon>list</mat-icon>
+              </button>
+              <button *ngIf="show" (click)="show = !show; orgs = []"  class="btn-sidenav" type="button" mat-button (click)="drawer.toggle()">
+                  <mat-icon>close</mat-icon>
+                </button>
+                <div class="org-cont-list">
+                  <app-organisation [org]="org" *ngFor="let org of orgs"></app-organisation>
+                </div>
+            </div>
+        </mat-drawer-container >
+        <ng-template #showMyAnn>
+          <div class="announcements-list">
+            <mat-card *ngFor="let ann of announcements" class="example-card">
+              <mat-card-header class="mat-header">
+                <div mat-card-avatar class="example-header-image">
+                  <img width="50px" height="50px" src="http://localhost:8080/avatars/{{ann.user.avatar}}" alt="">
+                </div>
+                <mat-card-title>{{ann.title}}</mat-card-title>
+                <mat-card-subtitle>
+                  <a style="color: white;" target="_blank" href="{{ann.geolocation}}">GEOLOCATION</a>
+                </mat-card-subtitle>
+                <div class="status">
+                    <mat-form-field style="width: 100px;">
+                    <mat-select (selectionChange)="changeStatus($event, ann.id)" [value]="ann.status">
+                        <mat-option [value]="2">
+                          In Progress
+                        </mat-option>
+                        <mat-option [value]="3">
+                            Rescued
+                          </mat-option>
+                      </mat-select>
+                    </mat-form-field>
+                </div>
+              </mat-card-header>
+              <img mat-card-image src="http://localhost:8080/photos/{{ann.photo}}" alt="Photo of a Shiba Inu">
+              <mat-card-content>
+                <p>
+                  {{ann.description}}
+                </p>
+                <span>Created: {{ann.createdAt | date: 'medium'}}</span>
+              </mat-card-content>
+            </mat-card>
+
+          </div>
+        </ng-template>
+  </main>
+</div>

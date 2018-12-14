@@ -1,0 +1,13 @@
+.add-container{
+  display: flex;
+  justify-content: flex-end;
+  padding: 30px;
+}
+
+.announcements-list{
+  display: flex;
+  height: 80vh;
+  flex-wrap: wrap;
+  overflow-y: scroll;
+  justify-content: flex-start;
+}

@@ -1,0 +1,35 @@
+<main style="padding-top: 50px;">
+    <div class="announcements-list">
+        <mat-card *ngFor="let ann of announcements" class="example-card">
+          <mat-card-header class="mat-header">
+            <div mat-card-avatar class="example-header-image">
+              <img
+                width="50px"
+                height="50px"
+                src="http://localhost:8080/avatars/{{ann.user.avatar}}"
+                alt=""
+              />
+            </div>
+            <mat-card-title>{{ ann.title }}</mat-card-title>
+            <mat-card-subtitle>
+              <a style="color: white;" target="_blank" href="{{ann.geolocation}}"
+                >GEOLOCATION</a
+              >
+            </mat-card-subtitle>
+            <div class="status">
+              <div class="status">{{ statuses[ann.status] }}</div>
+            </div>
+          </mat-card-header>
+          <img
+            mat-card-image
+            src="http://localhost:8080/photos/{{ann.photo}}"
+            alt="Photo of a Shiba Inu"
+          />
+          <mat-card-content>
+            <p>{{ ann.description }}</p>
+            <span>Created: {{ ann.createdAt | date: "medium" }}</span>
+          </mat-card-content>
+        </mat-card>
+      </div>
+</main>
+

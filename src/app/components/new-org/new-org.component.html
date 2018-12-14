@@ -1,0 +1,21 @@
+<div class="main">
+  <div class="add-container">
+      <div class="announcements-list">
+        <div *ngFor="let org of organisations" class="org">
+          <mat-card class="example-card">
+            <mat-card-header class="mat-header">
+              <mat-card-title>{{org.name}}</mat-card-title>
+              <mat-card-subtitle>
+                <span>{{org.email}}</span>
+              </mat-card-subtitle>
+            </mat-card-header>
+            <img mat-card-image src="http://localhost:8080/uploads/{{org.certificate}}" alt="Photo of a Shiba Inu">
+            <mat-card-actions>
+              <button (click)="confirm(org.id)" mat-button type="Confirm">Confirm</button>
+            </mat-card-actions>
+          </mat-card>
+
+      </div>
+  </div>
+
+</div>

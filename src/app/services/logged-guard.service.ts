@@ -10,7 +10,7 @@ export class LoggedGuardService implements CanActivate {
 
   public canActivate(): boolean {
     if (this.auth.isAuthenticated()) {
-      this.router.navigate(['me']);
+      this.router.navigate(['pet-helper']);
       return false;
     }
 

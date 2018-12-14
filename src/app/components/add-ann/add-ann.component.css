@@ -1,0 +1,9 @@
+.add-form{
+  width: 500px;
+  height: 400px;
+  padding: 30px;
+  display: flex;
+  margin: 0 auto;
+  background: rgb(252, 190, 190);
+  flex-direction: column;
+}

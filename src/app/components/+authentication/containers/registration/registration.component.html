@@ -1,13 +1,20 @@
 <div class="registration-container">
-  <form (submit)="register($event)" class="registration-form" [formGroup]="registrationForm" validate>
+  <form (submit)="register($event)" class="registration-form" [formGroup]="registrationForm" validate >
     <ng-container *ngTemplateOutlet="template">
 
     </ng-container>
 
-    <div *ngIf="template && template != default" class="activity-container">
-      <button type="button" [routerLink]="['/authorization']" mat-button>SING IN</button>
-      <button type="submit" mat-button>SING UP</button>
+    <div class="activity-container">
+      <div class="activities">
+        <button *ngIf="template !== user && template !== organization"  type="button" [routerLink]="['/authorization']" mat-button>SING IN</button>
+        <button *ngIf="template !== default" type="submit" mat-button>SING UP</button>
+      </div>
+      <button *ngIf="template !== default" type="button" (click)="template=default; registrationForm.reset()" mat-button>BACK</button>
     </div>
+
+    <mat-error *ngIf="registrationForm.hasError('error')">
+        Some fields are empty
+    </mat-error>
   </form>
 </div>
 
@@ -57,7 +64,7 @@
   </mat-form-field>
 
   <mat-form-field class="registration_fields">
-    <input matInput placeholder="Password*" [formControl]="registrationForm.controls['password']" [errorStateMatcher]="matcher">
+    <input type="password" matInput placeholder="Password*" [formControl]="registrationForm.controls['password']" [errorStateMatcher]="matcher">
     <mat-error *ngIf="registrationForm.controls['password'].hasError('required')">
       This is required.
     </mat-error>
@@ -114,8 +121,8 @@
     </mat-error>
   </mat-form-field>
 
-    <mat-label>Put your certificate</mat-label>
-    <input #file type="file">
+    <button type="button" (click)="file.click()" style="color: black; font-size: 24px;">Put your certificate</button>
+    <input style="visibility:hidden; color: white;" #file type="file">
 
   <mat-error *ngIf="registrationForm.hasError('badRequest')">
     This organization has already exist.

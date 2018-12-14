@@ -1,0 +1,32 @@
+<div>
+    <form class="profile-form" (submit)="update($event)" [formGroup]="profileForm">
+      <img *ngIf="user" #avatar class="avatar" (click)="file.click()" src="http://localhost:8080/avatars/{{avatarSrc}}" alt="">
+      <input (change)="changeVal($event)" #file type="file" hidden placeholder="Photo*">
+
+      <mat-form-field class="title_field">
+            <input matInput placeholder="Email*" [formControl]="profileForm.controls['email']" [errorStateMatcher]="matcher">
+            <mat-error *ngIf="profileForm.controls['email'].hasError('required')">
+              This is required.
+            </mat-error>
+            <mat-error *ngIf="profileForm.controls['email'].hasError('email')">
+                This should be email
+              </mat-error>
+          </mat-form-field>
+
+            <mat-form-field class="title_field">
+                <input matInput placeholder="First name*" [formControl]="profileForm.controls['firstName']" [errorStateMatcher]="matcher">
+                <mat-error *ngIf="profileForm.controls['firstName'].hasError('required')">
+                  This is required.
+                </mat-error>
+              </mat-form-field>
+              <mat-form-field class="title_field">
+                  <input matInput placeholder="Last name*" [formControl]="profileForm.controls['lastName']" [errorStateMatcher]="matcher">
+                  <mat-error *ngIf="profileForm.controls['lastName'].hasError('required')">
+                    This is required.
+                  </mat-error>
+                </mat-form-field>
+
+                <button mat-button type="submit">Update</button>
+      </form>
+
+</div>
