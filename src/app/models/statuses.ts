@@ -1,5 +1,5 @@
 export const statuses = {
-  1: 'Open',
-  2: 'In Progress',
-  3: 'Rescued',
+  1: 'Status.Open',
+  2: 'Status.InProgress',
+  3: 'Status.Rescued',
 };

@@ -25,6 +25,10 @@
   font-size: 20px;
 }
 
+.link :hover {
+  border-bottom: 2px solid pink;
+}
+
 .link-list{
   display: flex;
   width: 100%;

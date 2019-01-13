@@ -16,6 +16,10 @@ export class UserService {
     return this.http.get<IUser>(this.url + '/users/getUserByToken');
   }
 
+  getUsers() {
+    return this.http.get<IUser[]>(this.url + '/users');
+  }
+
   updateUser(id, formData) {
     return this.http.put<IUser>(this.url + '/users/' + id, formData);
   }

@@ -1,6 +1,9 @@
+import { Router } from '@angular/router';
+import { MyErrorStateMatcher } from 'src/app/models/error.matcher';
+import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { OrganisationService } from './../../services/organisation.service';
 import { IOrganisation } from './../../models/organisation';
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, ViewChild, ElementRef } from '@angular/core';
 
 @Component({
   selector: 'app-organisation',
@@ -10,9 +13,9 @@ import { Component, OnInit, Input } from '@angular/core';
 export class OrganisationComponent implements OnInit {
   @Input() public org: IOrganisation;
 
-  orgCertificate;
+  public logo: string;
 
   ngOnInit() {
-    this.orgCertificate = this.org.certificate;
+    this.logo = this.org.logo ? this.org.logo : 'default.png';
   }
 }

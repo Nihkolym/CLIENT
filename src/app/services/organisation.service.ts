@@ -10,6 +10,15 @@ export class OrganisationService {
   public url = environment.url;
   constructor(private http: HttpClient) { }
 
+
+  getOrganisation() {
+    return this.http.get<IOrganisation>(this.url + '/organisations/me');
+  }
+
+  updateOrganisation(id: number, org: FormData) {
+    return this.http.put<IOrganisation>(this.url + '/organisations/' + id, org);
+  }
+
   getOrganisations() {
     return this.http.get<IOrganisation[]>(this.url + '/organisations');
   }

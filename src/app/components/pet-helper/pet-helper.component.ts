@@ -1,9 +1,10 @@
+import { UserService } from './../../services/user.service';
 import { AnnouncementService } from './../../services/announcement.service';
 import { IAnnouncement } from './../../models/announcement';
 import { RoleService } from './../../services/role.service';
 import { Role } from './../../models/Role';
 import { OrganisationService } from './../../services/organisation.service';
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { statuses } from 'src/app/models/statuses';
 import { MatSelect } from '@angular/material';
 
@@ -15,6 +16,7 @@ import { MatSelect } from '@angular/material';
 export class PetHelperComponent implements OnInit {
 
   public Role = Role;
+  public currentType;
   public role;
   public statuses = statuses;
 
@@ -25,12 +27,23 @@ export class PetHelperComponent implements OnInit {
   constructor(
     private orgService: OrganisationService,
     private roleService: RoleService,
-    private annService: AnnouncementService
+    private annService: AnnouncementService,
+    private userService: UserService,
   ) { }
 
   getOrgs() {
     this.orgService.getOrganisations().subscribe((orgs) => {
       this.orgs = orgs;
+
+      this.currentType = Role.Organisation;
+    });
+  }
+
+  getUsers() {
+    this.userService.getUsers().subscribe((users) => {
+      this.orgs = users;
+
+      this.currentType = Role.User;
     });
   }
 

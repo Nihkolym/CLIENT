@@ -1,0 +1,83 @@
+{
+  "Admin_Panel": "Admin Panel",
+  "Organisations": "Organisations",
+  "Users": "Users",
+
+  "User": {
+    "FirstName": "First Name",
+    "LastName": "Last Name",
+    "Email": "Email",
+    "Pass": "Password"
+  },
+
+  "Organisation": {
+    "Name": "Name",
+    "Phone": "Phone",
+    "Email": "Email",
+    "Description": "Description",
+    "Address": "Address"
+  },
+
+  "Announcement": {
+    "Geo": "Geolocation",
+    "Title": "Title",
+    "Photo": "Photo",
+    "Created": "Created",
+    "Description": "Description"
+  },
+
+  "NeedHelp": "Need Help",
+  "Rescued": "Rescued",
+
+  "Profile": "Profile",
+  "NewOrganisations": "New Organisatins",
+  "Logout": "Logout",
+
+  "Errors": {
+    "Required": "This is required.",
+    "Email": "Must be email.",
+    "Phone": "Must be phone.",
+    "LittlePass": "More than 5 chars.",
+    "Integer": "Must be integer number.",
+    "IncorectValue": "Incorrect value.",
+    "TooBigLength": "This is too big length.",
+    "PassNotMatch": "Passwords don't match.",
+    "Pass": "Incorrect password.",
+    "EmailOrPass": "Incorrect email or password.",
+    "UserName": "Should be name",
+    "UserLastName": "Should be last name",
+    "UserAlreadyExist": "User has already exist.",
+    "OrgAlreadyExist": "Organisation has already exist.",
+    "NameShouldContain": "Name should contain more then 1 letter.",
+    "EmptyFields": "Some fields are empty."
+  },
+  "Status": {
+    "Open": "Open",
+    "InProgress": "In Progress",
+    "Rescued":"Rescued"
+  },
+  "Buttons": {
+    "Add": "Add",
+    "Subscribe": "Subscribe",
+    "RegistAsUser": "Register as User",
+    "RegistAsOrg": "Register as Organisation",
+    "Back": "Back",
+    "SendOnReview": "Send on review",
+    "Ok": "Ok",
+    "Cancel": "Cancel",
+    "Accept": "Accept",
+    "Hide": "Hide",
+    "ChangePass": "Change Password",
+    "Save": "Save",
+    "Info": "Info",
+    "Approve": "Approve",
+    "Decline": "Decline",
+    "SignUp": "Sign Up",
+    "SignIn": "Sign In",
+    "Reset": "Reset",
+    "Delete": "Delete",
+    "Confirm": "Confirm",
+    "Update": "Update",
+    "PutCertificate": "Put your Certificate"
+  }
+}

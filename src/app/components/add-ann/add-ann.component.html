@@ -1,28 +1,28 @@
 <div style="margin-top: 80px;">
     <form class="add-form" (submit)="addAnnouncement($event)" [formGroup]="addForm">
         <mat-form-field class="title_field">
-            <input matInput placeholder="Title*" [formControl]="addForm.controls['title']" [errorStateMatcher]="matcher">
+            <input matInput placeholder="{{'Announcement.Title' | translate}}*" [formControl]="addForm.controls['title']" [errorStateMatcher]="matcher">
             <mat-error *ngIf="addForm.controls['title'].hasError('required')">
-              This is required.
+              {{"Errors.Required" | translate}}
             </mat-error>
           </mat-form-field>
 
-            <label style="color: white" for="file">Photo: </label>  <input #file type="file" placeholder="Photo*">
+            <label style="color: white" for="file">{{'Announcement.Photo' | translate}}: </label>  <input #file type="file" placeholder="Photo*">
 
             <mat-form-field class="title_field">
-                <input matInput placeholder="Description*" [formControl]="addForm.controls['description']" [errorStateMatcher]="matcher">
+                <input matInput placeholder="{{'Announcement.Description' | translate}}*" [formControl]="addForm.controls['description']" [errorStateMatcher]="matcher">
                 <mat-error *ngIf="addForm.controls['description'].hasError('required')">
-                  This is required.
+                    {{"Errors.Required" | translate}}
                 </mat-error>
               </mat-form-field>
               <mat-form-field class="title_field">
-                  <input matInput placeholder="Geolocation*" [formControl]="addForm.controls['geolocation']" [errorStateMatcher]="matcher">
+                  <input matInput placeholder="{{'Announcement.Geo' | translate}}*" [formControl]="addForm.controls['geolocation']" [errorStateMatcher]="matcher">
                   <mat-error *ngIf="addForm.controls['geolocation'].hasError('required')">
-                    This is required.
+                    {{"Errors.Required" | translate}}
                   </mat-error>
                 </mat-form-field>
 
-                <button mat-button type="submit">ADD</button>
+                <button mat-button type="submit">{{'Buttons.Add' | translate}}</button>
       </form>
 
 </div>

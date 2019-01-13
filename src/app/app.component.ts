@@ -1,3 +1,4 @@
+import { LocalizationService } from './services/localization.service';
 import { AuthenticationService } from './components/+authentication/services/authentication.service';
 import { Component, DoCheck } from '@angular/core';
 
@@ -11,8 +12,8 @@ export class AppComponent implements DoCheck {
 
   public isLogedIn = false;
 
-  constructor(private authService: AuthenticationService) {
-
+  constructor(private authService: AuthenticationService, private locService: LocalizationService) {
+    this.locService.Init();
   }
 
   ngDoCheck() {

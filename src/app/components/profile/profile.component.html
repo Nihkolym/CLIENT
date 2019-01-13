@@ -1,32 +1,137 @@
-<div>
-    <form class="profile-form" (submit)="update($event)" [formGroup]="profileForm">
-      <img *ngIf="user" #avatar class="avatar" (click)="file.click()" src="http://localhost:8080/avatars/{{avatarSrc}}" alt="">
-      <input (change)="changeVal($event)" #file type="file" hidden placeholder="Photo*">
+<div class="profile">
+  <ng-container *ngTemplateOutlet="roleService.Role === Role.Organisation ? org : user">
+
+  </ng-container>
+  <ng-template #user>
+      <form
+      class="profile-form"
+      (submit)="update($event)"
+      [formGroup]="profileForm"
+    >
+      <img
+        *ngIf="user"
+        #avatar
+        class="avatar"
+        (click)="file.click()"
+        src="http://localhost:8080/avatars/{{ avatarSrc }}"
+        alt=""
+      />
+      <input
+        (change)="changeVal($event)"
+        #file
+        type="file"
+        hidden
+        placeholder="{{'User.Avatar' | translate}}*"
+      />
 
       <mat-form-field class="title_field">
-            <input matInput placeholder="Email*" [formControl]="profileForm.controls['email']" [errorStateMatcher]="matcher">
-            <mat-error *ngIf="profileForm.controls['email'].hasError('required')">
-              This is required.
-            </mat-error>
-            <mat-error *ngIf="profileForm.controls['email'].hasError('email')">
-                This should be email
-              </mat-error>
-          </mat-form-field>
+        <input
+          matInput
+          placeholder="{{'User.Email' | translate}}*"
+          [formControl]="profileForm.controls['email']"
+          [errorStateMatcher]="matcher"
+        />
+        <mat-error *ngIf="profileForm.controls['email'].hasError('required')">
+          {{'Errors.Required' | translate}}
+        </mat-error>
+        <mat-error *ngIf="profileForm.controls['email'].hasError('email')">
+            {{'Errors.Email' | translate}}
+        </mat-error>
+      </mat-form-field>
 
-            <mat-form-field class="title_field">
-                <input matInput placeholder="First name*" [formControl]="profileForm.controls['firstName']" [errorStateMatcher]="matcher">
-                <mat-error *ngIf="profileForm.controls['firstName'].hasError('required')">
-                  This is required.
-                </mat-error>
-              </mat-form-field>
-              <mat-form-field class="title_field">
-                  <input matInput placeholder="Last name*" [formControl]="profileForm.controls['lastName']" [errorStateMatcher]="matcher">
-                  <mat-error *ngIf="profileForm.controls['lastName'].hasError('required')">
-                    This is required.
-                  </mat-error>
-                </mat-form-field>
+      <mat-form-field class="title_field">
+        <input
+          matInput
+          placeholder="{{'User.FirstName' | translate}}*"
+          [formControl]="profileForm.controls['firstName']"
+          [errorStateMatcher]="matcher"
+        />
+        <mat-error *ngIf="profileForm.controls['firstName'].hasError('required')">
+            {{'Errors.Required' | translate}}
+        </mat-error>
+      </mat-form-field>
+      <mat-form-field class="title_field">
+        <input
+          matInput
+          placeholder="{{'User.LastName' | translate}}*"
+          [formControl]="profileForm.controls['lastName']"
+          [errorStateMatcher]="matcher"
+        />
+        <mat-error *ngIf="profileForm.controls['lastName'].hasError('required')">
+            {{'Errors.Required' | translate}}
+        </mat-error>
+      </mat-form-field>
 
-                <button mat-button type="submit">Update</button>
-      </form>
+      <button mat-button type="submit">{{'Buttons.Update' | translate}}</button>
+    </form>
+  </ng-template>
 
+  <ng-template #org>
+      <form
+      class="profile-form"
+      (submit)="update($event)"
+      [formGroup]="profileForm"
+    >
+      <img
+        *ngIf="user"
+        #avatar
+        class="avatar"
+        (click)="file.click()"
+        src="http://localhost:8080/avatars/{{ avatarSrc }}"
+        alt="avatar"
+      />
+      <input
+        (change)="changeVal($event)"
+        #file
+        type="file"
+        hidden
+        placeholder="{{'Organisation.Photo' | translate}}*"
+      />
+
+      <mat-form-field class="title_field">
+        <input
+          matInput
+          placeholder="{{'Organisation.Email' | translate}}*"
+          [formControl]="profileForm.controls['email']"
+          [errorStateMatcher]="matcher"
+        />
+        <mat-error *ngIf="profileForm.controls['email'].hasError('required')">
+            {{'Errors.Required' | translate}}
+        </mat-error>
+        <mat-error *ngIf="profileForm.controls['email'].hasError('email')">
+            {{'Errors.Email' | translate}}
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field class="title_field">
+        <input
+          matInput
+          placeholder="{{'Organisation.Name' | translate}}*"
+          [formControl]="profileForm.controls['name']"
+          [errorStateMatcher]="matcher"
+        />
+        <mat-error *ngIf="profileForm.controls['name'].hasError('required')">
+            {{'Errors.Required' | translate}}
+        </mat-error>
+      </mat-form-field>
+      <mat-form-field class="title_field">
+        <input
+          matInput
+          placeholder="{{'Organisation.Address' | translate}}"
+          [formControl]="profileForm.controls['address']"
+          [errorStateMatcher]="matcher"
+        />
+      </mat-form-field>
+      <mat-form-field class="title_field">
+          <input
+            matInput
+            placeholder="{{'Organisation.Description' | translate}}"
+            [formControl]="profileForm.controls['description']"
+            [errorStateMatcher]="matcher"
+          />
+        </mat-form-field>
+
+      <button mat-button type="submit">{{'Buttons.Update' | translate}}</button>
+    </form>
+  </ng-template>
 </div>

@@ -19,7 +19,6 @@ const appRoutes: Routes = [
   { path: 'authorization', pathMatch: 'full', component: AuthorizationComponent, canActivate: [LoggedGuardService] },
   { path: 'pet-helper', pathMatch: 'full', component: PetHelperComponent, canActivate: [AuthenticationGuardService] },
   { path: 'profile', pathMatch: 'full', component: ProfileComponent, canActivate: [AuthenticationGuardService] },
-  { path: 'org', pathMatch: 'full', component: OrganisationComponent, canActivate: [AuthenticationGuardService] },
   { path: 'rescued', pathMatch: 'full', component: RescuedComponent, canActivate: [AuthenticationGuardService] },
   { path: 'new-org', pathMatch: 'full', component: NewOrgComponent, canActivate: [RoleGuardService], data: {
     expectedRole: Role.Admin

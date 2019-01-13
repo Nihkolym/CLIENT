@@ -1,8 +1,8 @@
 <div class="organisation-container">
-  <img width="300" height="300" src="http://localhost:8080/uploads/{{org.certificate}}" alt="">
-  <div>Name: {{org.name}}</div>
-  <div>Phone: {{org.phone}}</div>
-  <div>Email: {{org.email}}</div>
-  <div>Description: {{org.description}}</div>
-  <div>Address: {{org.address}}</div>
+  <img width="300" height="300" src="http://localhost:8080/avatars/{{logo}}" alt="">
+  <div>{{'Organisation.Name' | translate}}: {{org.name}}</div>
+  <div>{{'Organisation.Phone' | translate}}: {{org.phone}}</div>
+  <div>{{'Organisation.Email' | translate}}: {{org.email}}</div>
+  <div>{{'Organisation.Description' | translate}}: {{org.description}}</div>
+  <div>{{'Organisation.Address' | translate}}: {{org.address}}</div>
 </div>

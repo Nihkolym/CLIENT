@@ -1,11 +1,14 @@
 <div class="main">
   <main style="height: calc(100vh - 100px); overflow-y: scroll;">
       <mat-drawer-container *ngIf="Role.Admin === role; else showMyAnn" class="example-container" autosize>
-          <mat-drawer #drawer class="example-sidenav" mode="side">
-            <p>Admin Panel</p>
-            <button (click)="getOrgs()" mat-raised-button>
-              Organisations
+          <mat-drawer style="text-align: center;" #drawer class="example-sidenav" mode="side">
+            <p>{{ 'Admin_Panel' | translate }}</p>
+            <button (click)="getOrgs()" class="admin-btn" mat-raised-button>
+                {{ 'Organisations' | translate }}
             </button>
+            <button (click)="getUsers()" class="admin-btn" mat-raised-button>
+                {{ 'Users' | translate }}
+              </button>
           </mat-drawer>
           <div class="example-sidenav-content">
               <button *ngIf="!show" (click)="show = !show" class="btn-sidenav" type="button" mat-button (click)="drawer.toggle()">
@@ -14,9 +17,13 @@
               <button *ngIf="show" (click)="show = !show; orgs = []"  class="btn-sidenav" type="button" mat-button (click)="drawer.toggle()">
                   <mat-icon>close</mat-icon>
                 </button>
-                <div class="org-cont-list">
-                  <app-organisation [org]="org" *ngFor="let org of orgs"></app-organisation>
+                <div *ngIf="currentType === Role.Organisation" class="org-cont-list">
+                  <app-organisation  [org]="org" *ngFor="let org of orgs"></app-organisation>
                 </div>
+
+                <div *ngIf="currentType === Role.User" class="org-cont-list">
+                    <app-user [user]="org" *ngFor="let org of orgs"></app-user>
+                  </div>
             </div>
         </mat-drawer-container >
         <ng-template #showMyAnn>
@@ -28,16 +35,16 @@
                 </div>
                 <mat-card-title>{{ann.title}}</mat-card-title>
                 <mat-card-subtitle>
-                  <a style="color: white;" target="_blank" href="{{ann.geolocation}}">GEOLOCATION</a>
+                  <a style="color: white;" target="_blank" href="{{ann.geolocation}}">{{"Announcement.Geo" | translate}}</a>
                 </mat-card-subtitle>
                 <div class="status">
                     <mat-form-field style="width: 100px;">
                     <mat-select (selectionChange)="changeStatus($event, ann.id)" [value]="ann.status">
                         <mat-option [value]="2">
-                          In Progress
+                            {{"Status.InProgress" | translate}}
                         </mat-option>
                         <mat-option [value]="3">
-                            Rescued
+                            {{"Status.Rescued" | translate}}
                           </mat-option>
                       </mat-select>
                     </mat-form-field>
@@ -48,7 +55,7 @@
                 <p>
                   {{ann.description}}
                 </p>
-                <span>Created: {{ann.createdAt | date: 'medium'}}</span>
+                <span>{{"Announcement.Created" | translate}}: {{ann.createdAt | date: 'medium'}}</span>
               </mat-card-content>
             </mat-card>
 

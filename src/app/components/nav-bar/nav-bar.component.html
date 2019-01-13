@@ -3,14 +3,20 @@
     <div [routerLink]="'/'" class="logo">
       <mat-icon style="font-size: 40px">pets</mat-icon>
     </div>
-    <div class="links">
+
+    <div style="display: flex; align-items: center;">
+        <span style="margin-right: 5px;">En</span>
+        <mat-slide-toggle (change)="changeLang($event)" [color]="'primary'" [checked]="checked">Ua</mat-slide-toggle>
+    </div>
+
+
+    <div class="links" style="text-align: center">
       <ul class="link-list">
-        <li class="link"><a [routerLink]="['/need-help']">Need Help</a></li>
-        <li class="link"><a [routerLink]="['/rescued']">Rescued</a></li>
+        <li class="link"><a [routerLink]="['/need-help']">{{"NeedHelp" | translate}}</a></li>
+        <li class="link"><a [routerLink]="['/rescued']">{{"Rescued" | translate}}</a></li>
       </ul>
     </div>
   </div>
-
   <div class="profile">
     <button mat-button [matMenuTriggerFor]="menu">
       <mat-icon class="profile_icon" style="font-size: 40px;"
@@ -18,10 +24,9 @@
       >
     </button>
     <mat-menu #menu="matMenu">
-      <button *ngIf="Role.User === role || Role.Admin === role" mat-menu-item [routerLink]="['/profile']">Profile</button>
-      <button *ngIf="Role.Organisation === role" mat-menu-item [routerLink]="['/org']">Profile</button>
-      <button *ngIf="Role.Admin === role" mat-menu-item [routerLink]="['/new-org']">New Organisations</button>
-      <button (click)="logout()" mat-menu-item>Logout</button>
+      <button mat-menu-item [routerLink]="['/profile']">{{"Profile" | translate}}</button>
+      <button *ngIf="Role.Admin === role" mat-menu-item [routerLink]="['/new-org']">{{"NewOrganisations" | translate}}</button>
+      <button (click)="logout()" mat-menu-item>{{"Logout" | translate}}</button>
     </mat-menu>
   </div>
 </nav>

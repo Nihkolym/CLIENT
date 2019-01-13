@@ -5,10 +5,10 @@
       </div>
       <mat-card-title>{{ann.title}}</mat-card-title>
       <mat-card-subtitle>
-        <a style="color: white;" target="_blank" href="{{ann.geolocation}}">GEOLOCATION</a>
+        <a style="color: white;" target="_blank" href="{{ann.geolocation}}">{{"Announcement.Geo" | translate | uppercase}}</a>
       </mat-card-subtitle>
       <div class="status">
-        {{statuses[ann.status]}}
+        {{statuses[ann.status] | translate}}
       </div>
     </mat-card-header>
     <img mat-card-image src="http://localhost:8080/photos/{{ann.photo}}" alt="Photo of a Shiba Inu">
@@ -16,9 +16,9 @@
       <p>
         {{ann.description}}
       </p>
-      <span>Created: {{ann.createdAt | date: 'medium'}}</span>
+      <span>{{"Announcement.Created" | translate}}: {{ann.createdAt | date: 'medium'}}</span>
     </mat-card-content>
     <mat-card-actions>
-      <button (click)="onSub()" *ngIf="Role.Organisation === role" mat-button>SUBSCRIBE</button>
+      <button (click)="onSub()" *ngIf="Role.Organisation === role" mat-button>{{"Buttons.Subscribe" | translate | uppercase}}</button>
     </mat-card-actions>
   </mat-card>

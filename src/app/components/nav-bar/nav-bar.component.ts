@@ -1,3 +1,4 @@
+import { LocalizationService } from './../../services/localization.service';
 import { RoleService } from './../../services/role.service';
 import { Role } from './../../models/Role';
 import { AuthenticationService } from './../+authentication/services/authentication.service';
@@ -14,13 +15,25 @@ export class NavBarComponent implements OnInit {
   public Role = Role;
   public role;
 
-  constructor(private authService: AuthenticationService, private roleService: RoleService) { }
+  public checked = false;
+
+  constructor(private authService: AuthenticationService, private roleService: RoleService, private locService: LocalizationService) { }
 
   ngOnInit() {
     this.role = this.roleService.Role;
+
+    this.checked = this.locService.Local === 'ua' ? true : false;
   }
 
   logout() {
     this.authService.logOut();
+  }
+
+  changeLang(event) {
+    if (event.checked) {
+      this.locService.Local = 'ua';
+    } else {
+      this.locService.Local = 'en';
+    }
   }
 }

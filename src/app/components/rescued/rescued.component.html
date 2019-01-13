@@ -13,11 +13,11 @@
             <mat-card-title>{{ ann.title }}</mat-card-title>
             <mat-card-subtitle>
               <a style="color: white;" target="_blank" href="{{ann.geolocation}}"
-                >GEOLOCATION</a
+                >{{"Announcement.Geo" | translate}}</a
               >
             </mat-card-subtitle>
             <div class="status">
-              <div class="status">{{ statuses[ann.status] }}</div>
+              <div class="status">{{ statuses[ann.status] | translate }}</div>
             </div>
           </mat-card-header>
           <img
@@ -27,7 +27,7 @@
           />
           <mat-card-content>
             <p>{{ ann.description }}</p>
-            <span>Created: {{ ann.createdAt | date: "medium" }}</span>
+            <span>{{"Announcement.Created" | translate}}: {{ ann.createdAt | date: "medium" }}</span>
           </mat-card-content>
         </mat-card>
       </div>

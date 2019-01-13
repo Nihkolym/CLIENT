@@ -42,6 +42,7 @@ export class RegistrationComponent implements OnInit {
   @ViewChild("organization") organization: ElementRef;
   @ViewChild("default") default: ElementRef;
   @ViewChild("file") file: ElementRef;
+  @ViewChild("certificate") certificate: ElementRef;
 
   private signUp;
 
@@ -110,7 +111,7 @@ export class RegistrationComponent implements OnInit {
 
   public register(event): void {
     event.preventDefault();
-    if (this.registrationForm.valid) {
+    if (this.registrationForm.valid && this.file.nativeElement.files.length) {
       this.signUp();
     } else {
       this.registrationForm.setErrors({
@@ -135,6 +136,18 @@ export class RegistrationComponent implements OnInit {
           });
         }
       );
+  }
+
+  changeVal(event: any) {
+    if (event.target.files && event.target.files[0]) {
+      const reader = new FileReader();
+
+      reader.onload = ($event: ProgressEvent) => {
+        this.certificate.nativeElement.src = (<FileReader>$event.target).result;
+      };
+
+      reader.readAsDataURL(event.target.files[0]);
+    }
   }
 
   private signUpAsOrganization() {

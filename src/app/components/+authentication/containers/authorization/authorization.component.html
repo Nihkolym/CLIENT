@@ -1,32 +1,32 @@
 <div class="authorization-container">
   <form (submit)="signIn()" class="authorization-form" [formGroup]="authorizationForm" validate>
     <mat-form-field class="authorization_fields">
-      <input matInput placeholder="Email*" [formControl]="authorizationForm.controls['email']">
+      <input matInput placeholder="{{'User.Email' | translate}}*" [formControl]="authorizationForm.controls['email']">
       <mat-error *ngIf="authorizationForm.controls['email'].hasError('required')">
-        This is required.
+        {{"Errors.Required" | translate}}
       </mat-error>
       <mat-error *ngIf="authorizationForm.controls['email'].hasError('email')">
-        This should be email.
+          {{"Errors.Email" | translate}}
       </mat-error>
     </mat-form-field>
 
     <mat-form-field class="authorization_fields">
-      <input type="password" matInput placeholder="Password*" [formControl]="authorizationForm.controls['password']">
+      <input type="password" matInput placeholder="{{'User.Pass' | translate}}*" [formControl]="authorizationForm.controls['password']">
       <mat-error *ngIf="authorizationForm.controls['password'].hasError('required')">
-        This is required.
+          {{"Errors.Required" | translate}}
       </mat-error>
       <mat-error *ngIf="authorizationForm.controls['password'].hasError('minlength')">
-        More then 5 chars.
+        {{"Errors.LittlePass" | translate}}
       </mat-error>
     </mat-form-field>
 
     <mat-error *ngIf="authorizationForm.hasError('badRequest')">
-      Invalid email or password.
+        {{"Errors.EmailOrPass" | translate}}
     </mat-error>
 
     <div class="activity-container">
-      <button type="button" [routerLink]="['/registration']" mat-button>SING UP</button>
-      <button type="submit" mat-button>SING IN</button>
+      <button type="button" [routerLink]="['/registration']" mat-button>{{"Buttons.SignUp" | translate}}</button>
+      <button type="submit" mat-button>{{"Buttons.SignIn" | translate}}</button>
     </div>
   </form>
 </div>
